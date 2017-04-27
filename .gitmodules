@@ -1,0 +1,9 @@
+[submodule "cli"]
+	path = cli
+	url = https://github.com/Nobel3D/xsKeyManager-cli
+[submodule "gui"]
+	path = gui
+	url = https://github.com/Nobel3D/xsKeyManager
+[submodule "lib"]
+	path = lib
+	url = https://github.com/Nobel3D/xslibpasswd
