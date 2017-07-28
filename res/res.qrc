@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/xs">
+        <file>men.png</file>
+        <file>shield.png</file>
+    </qresource>
+</RCC>
