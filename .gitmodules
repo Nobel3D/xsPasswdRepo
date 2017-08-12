@@ -7,3 +7,6 @@
 [submodule "lib"]
 	path = lib
 	url = https://github.com/Nobel3D/xslibpasswd
+[submodule "xslib"]
+	path = xslib
+	url = https://github.com/Nobel3D/xslib.git
