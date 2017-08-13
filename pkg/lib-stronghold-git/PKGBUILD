@@ -2,7 +2,7 @@
 
 pkgname=lib-stronghold-git
 _gitname=xslibpasswd
-pkgver=31.b83030d
+pkgver=32.bef0942
 pkgrel=1
 pkgdesc="Security manager written in Qt with xslib extention"
 arch=('i686' 'x86_64')
@@ -34,5 +34,6 @@ package() {
     cp -r *.h "$pkgdir"/usr/include/libStronghold/
     install -d -m666 "$pkgdir"/usr/share/xsoftware/Stronghold
     cp "$srcdir/xsResource/shield.png" "$pkgdir"/usr/share/xsoftware/Stronghold
+    install -d -m755 "$pkgdir"/usr/share/applications
     cp "$srcdir/xsResource/desktops/stronghold.desktop" "$pkgdir"/usr/share/applications/
 }
