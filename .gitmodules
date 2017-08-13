@@ -10,3 +10,6 @@
 [submodule "xslib"]
 	path = xslib
 	url = https://github.com/Nobel3D/xslib.git
+[submodule "xsResource"]
+	path = xsResource
+	url = https://github.com/nobel3d/xsResource.git

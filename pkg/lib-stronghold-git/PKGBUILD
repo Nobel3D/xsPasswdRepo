@@ -1,0 +1,38 @@
+# Maintainer: Luca Gasperini <info at xsoftware dot tk>
+
+pkgname=lib-stronghold-git
+_gitname=xslibpasswd
+pkgver=31.b83030d
+pkgrel=1
+pkgdesc="Security manager written in Qt with xslib extention"
+arch=('i686' 'x86_64')
+url="https://xsoftware.tk/Stronghold"
+license=('GPL3')
+depends=('xslib')
+makedepends=('git' 'make')
+#optdepends=('')
+provides=('lib-stronghold')
+conflicts=("lib-stronghold")
+source=("git+https://github.com/Nobel3D/xslibpasswd" "git+https://github.com/Nobel3D/xsResource")
+md5sums=('SKIP' 'SKIP')
+
+pkgver() {
+  cd "$srcdir/$_gitname"
+  echo "$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+}
+
+build() {
+	cd "$srcdir/$_gitname"
+	qmake -config release
+	make
+}
+
+package() {
+	cd "$srcdir/$_gitname"
+	make INSTALL_ROOT="$pkgdir/" install
+	install -d -m755 "$pkgdir"/usr/include/libStronghold
+    cp -r *.h "$pkgdir"/usr/include/libStronghold/
+    install -d -m666 "$pkgdir"/usr/share/xsoftware/Stronghold
+    cp "$srcdir/xsResource/shield.png" "$pkgdir"/usr/share/xsoftware/Stronghold
+    cp "$srcdir/xsResource/desktops/stronghold.desktop" "$pkgdir"/usr/share/applications/
+}
