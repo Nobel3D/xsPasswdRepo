@@ -12,8 +12,8 @@ depends=('lib-stronghold-git')
 makedepends=('git' 'make')
 provides=('stronghold')
 conflicts=("stronghold")
-source=("git+https://github.com/Nobel3D/xsKeyManager")
-md5sums=('SKIP')
+source=("git+https://github.com/Nobel3D/xsKeyManager" "git+https://github.com/Nobel3D/xsResource")
+md5sums=('SKIP' 'SKIP')
 
 pkgver() {
   cd "$srcdir/$_gitname"
@@ -29,4 +29,8 @@ build() {
 package() {
 	cd "$srcdir/$_gitname"
 	make INSTALL_ROOT="$pkgdir/" install
+    install -d -m755 "$pkgdir"/usr/share/xsoftware/Stronghold
+    cp "$srcdir/xsResource/shield.png" "$pkgdir"/usr/share/xsoftware/Stronghold
+    install -d -m755 "$pkgdir"/usr/share/applications
+    cp "$srcdir/xsResource/desktops/stronghold.desktop" "$pkgdir"/usr/share/applications/
 }
