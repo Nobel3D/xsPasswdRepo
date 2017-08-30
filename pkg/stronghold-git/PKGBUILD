@@ -29,8 +29,8 @@ build() {
 package() {
 	cd "$srcdir/$_gitname"
 	make INSTALL_ROOT="$pkgdir/" install
-    install -d -m777 "$pkgdir"/usr/share/xsoftware/Stronghold
+    install -d -Dm777 "$pkgdir"/usr/share/xsoftware/Stronghold
     cp "$srcdir/xsResource/shield.png" "$pkgdir"/usr/share/xsoftware/Stronghold
-    install -m755 "$pkgdir"/usr/share/applications
+    install -d -Dm755 "$pkgdir"/usr/share/applications
     cp "$srcdir/xsResource/desktops/stronghold.desktop" "$pkgdir"/usr/share/applications/
 }
